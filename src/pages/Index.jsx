@@ -7,6 +7,8 @@ import BookCard from "../common/BookCard";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import searchIcon from "../assets/svgs/search.svg";
+import HeaderText from "../common/HeaderText";
+import Container from "../components/Container";
 
 const Index = () => {
   const [searchBarDisplay, setSearchBarDisplay] = useState(false);
@@ -15,7 +17,7 @@ const Index = () => {
   };
   return (
     <>
-      <div className="main-container">
+      <Container>
         <Header toggleSearchBar={toggleSearchBar} />
         {searchBarDisplay && (
           <div className="search-bar">
@@ -38,19 +40,15 @@ const Index = () => {
             <img src={illustration} alt="" />
           </div>
         </div>
+        
+        <div style={{margin:"6rem 0"}}>
+        <HeaderText>Popular books</HeaderText>
+        </div>
         <section className="cards">
           <BookCard />
           <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
         </section>
-      </div>
+      </Container>
     </>
   );
 };
