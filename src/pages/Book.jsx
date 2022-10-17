@@ -8,6 +8,7 @@ import searchIcon from "../assets/svgs/search.svg";
 import Container from "../components/Container";
 import "../styles/product.css"
 const Book = () => {
+  const [itemQuantityCount, setItemQuantityCount] = useState(0)
   const [searchBarDisplay, setSearchBarDisplay] = useState(false);
   const toggleSearchBar = () => {
     setSearchBarDisplay(!searchBarDisplay);
@@ -36,7 +37,13 @@ const Book = () => {
               voluptate aut quasi quod corrupti voluptates recusandae neque hic
               optio sit.
             </p>
+            <h5>$30.00</h5>
 
+<div className="cart-increment__button">
+<Button>-</Button>
+<Input type="text"value={itemQuantityCount} onChange={(e)=>setItemQuantityCount(e.target.value)}/>
+<Button>+</Button>
+</div>
             <div className="button-container">
               <Button className="cart-button">Add to cart</Button>
             </div>
