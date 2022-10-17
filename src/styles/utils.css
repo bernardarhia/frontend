@@ -1,0 +1,73 @@
+.show-error p, .show-success p{
+    padding: .6rem;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    margin: .3rem;
+    border-radius: 4px;
+}
+.show-error p{
+  background: #ff000030;
+  color: #ef5555;
+}
+.show-success p{
+  background:#43a7553b;
+  color: #33a733;
+}
+.hide-error, .hide-success{
+    display: none;
+}
+
+/* #43a755; */
+
+.form-container {
+    padding: 2.5rem;
+    border-radius: 0.375rem;
+    border: 0.0625rem solid rgb(224, 228, 232);
+    margin: 3rem auto;
+    width: 30rem;
+  }
+.input-container{
+    margin: 1rem 0;
+    padding: .5rem;
+}
+.input-container label{
+    display: block;
+    padding: .3rem;
+}
+.input{
+    height: 2.375rem;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius:4px;
+    border: 1px solid #dfe2e6;
+    color: var(--primary-color);
+    background: #f6f8fb;
+    transition: all 0.3s ease-in-out;
+}
+.button-container button {
+    height: 3.375rem;
+    padding: 1.15rem 1rem;
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    color: #fff;
+    background: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-footer a {
+    color: #2a323b;
+    font-size: 0.8rem;
+    font-weight: 599;
+  }
+  .btn-primary{
+    background: #000;
+  }
