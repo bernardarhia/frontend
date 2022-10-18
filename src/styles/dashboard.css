@@ -1,0 +1,25 @@
+.dashboard-card__container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.dashboard-card{
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 10px 0 30px rgba(204, 204, 204, 0.267);
+}
+.dashboard-card h3, .dashboard-card p{
+    padding: .5rem 0;
+}
+
+@media (max-width:768px){
+    .dashboard-card__container{
+        display: block;
+    }
+    .dashboard-card{
+        margin: .7rem 0;
+    }
+}

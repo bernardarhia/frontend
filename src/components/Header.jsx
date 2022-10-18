@@ -1,27 +1,38 @@
-import React from 'react'
-import searchIcon from "../assets/svgs/search2.svg"
-import userIcon from "../assets/svgs/user.svg"
-import shoppingCartIcon from "../assets/svgs/shopping-bag.svg"
-const Header = ({toggleSearchBar}) => {
+import React from "react";
+import searchIcon from "../assets/svgs/search2.svg";
+import userIcon from "../assets/svgs/user.svg";
+import shoppingCartIcon from "../assets/svgs/shopping-bag.svg";
+import logoutButton from "../assets/svgs/logout.svg";
+import Button from "../common/Button";
+import useLogout from "../hooks/useLogout";
+import useAuth from "../hooks/useAuth";
+const Header = ({ toggleSearchBar }) => {
+  const logout = useLogout();
+  const {auth} = useAuth()
+
+  const signOut = async () => {
+    await logout();
+   
+  };
   return (
     <header>
-    <nav>
+      <nav>
         <h1 className="logo">Bookify</h1>
-        <ul>
-            <li><a href="/" className="active">Books</a></li>
-            <li><a href="/">Audio</a></li>
-            <li><a href="/">Stationery & Gifts</a></li>
-            <li><a href="/">Blog</a></li>
-        </ul>
         <div className="nav-icons">
-            <img src={searchIcon} alt="search icon" onClick={toggleSearchBar} />
-            <img src={userIcon} alt="user icon" />
-            <img src={shoppingCartIcon} alt="shopping cart icon" />
-
+          {
+            auth?.role === "user" && (
+              <>
+              <img src={searchIcon} alt="search icon" onClick={toggleSearchBar} />
+              <img src={userIcon} alt="user icon" />
+              <img src={shoppingCartIcon} alt="shopping cart icon" />
+              </>
+            )
+          }
+          <img src={logoutButton} alt="shopping cart icon" onClick={signOut} />
         </div>
-    </nav>
-</header>
-  )
-}
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

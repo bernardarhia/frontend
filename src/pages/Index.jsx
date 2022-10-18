@@ -9,16 +9,25 @@ import Button from "../common/Button";
 import searchIcon from "../assets/svgs/search.svg";
 import HeaderText from "../common/HeaderText";
 import Container from "../components/Container";
+import useBooks from "../hooks/useBooks";
+import useAuth from "../hooks/useAuth";
 
 const Index = () => {
+  const {books} = useBooks()
+  const {auth} = useAuth()
   const [searchBarDisplay, setSearchBarDisplay] = useState(false);
   const toggleSearchBar = () => {
     setSearchBarDisplay(!searchBarDisplay);
   };
+  console.log(books);
   return (
     <>
       <Container>
         <Header toggleSearchBar={toggleSearchBar} />
+        <div style={{margin:"2rem 0"}}>
+        <HeaderText>Welcome {auth?.user}</HeaderText>
+        </div>
+
         {searchBarDisplay && (
           <div className="search-bar">
             <Input className="input" placeholder="Type book name" />

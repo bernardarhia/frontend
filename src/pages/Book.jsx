@@ -6,13 +6,21 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import searchIcon from "../assets/svgs/search.svg";
 import Container from "../components/Container";
-import "../styles/product.css"
+import "../styles/product.css";
 const Book = () => {
-  const [itemQuantityCount, setItemQuantityCount] = useState(0)
+  const [itemQuantityCount, setItemQuantityCount] = useState(0);
   const [searchBarDisplay, setSearchBarDisplay] = useState(false);
   const toggleSearchBar = () => {
     setSearchBarDisplay(!searchBarDisplay);
   };
+
+  const incrementCartQuantity = () => {
+    setItemQuantityCount(itemQuantityCount + 1);
+  };
+  const decrementCartQuantity = () => {
+    setItemQuantityCount(itemQuantityCount - 1);
+  };
+
   return (
     <>
       <Container>
@@ -39,11 +47,20 @@ const Book = () => {
             </p>
             <h5>$30.00</h5>
 
-<div className="cart-increment__button">
-<Button>-</Button>
-<Input type="text"value={itemQuantityCount} onChange={(e)=>setItemQuantityCount(e.target.value)}/>
-<Button>+</Button>
-</div>
+            <div className="cart-increment__button">
+              <Button
+                onClick={decrementCartQuantity}
+                disabled={itemQuantityCount < 1 ? true : false}
+              >
+                -
+              </Button>
+              <Input
+                type="text"
+                value={itemQuantityCount}
+                onChange={(e) => setItemQuantityCount(e.target.value)}
+              />
+              <Button onClick={incrementCartQuantity}>+</Button>
+            </div>
             <div className="button-container">
               <Button className="cart-button">Add to cart</Button>
             </div>
