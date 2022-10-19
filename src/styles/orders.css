@@ -1,0 +1,14 @@
+.order-success{
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    border: 1px solid rgba(204, 204, 204, 0.663);
+    flex: 1;
+    margin: 3rem auto;
+}
+
+.success{
+    font-size:2rem;
+    font-weight: bold;
+    color: rgba(33, 207, 112, 0.87);
+}

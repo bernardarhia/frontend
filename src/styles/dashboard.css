@@ -1,25 +1,64 @@
-.dashboard-card__container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 3rem 0;
+.dashboard-card__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 3rem 0;
 }
 
-.dashboard-card{
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 10px 0 30px rgba(204, 204, 204, 0.267);
+.dashboard-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 10px 0 30px rgba(204, 204, 204, 0.267);
 }
-.dashboard-card h3, .dashboard-card p{
-    padding: .5rem 0;
+.dashboard-card h3,
+.dashboard-card p {
+  padding: 0.5rem 0;
 }
 
-@media (max-width:768px){
-    .dashboard-card__container{
-        display: block;
-    }
-    .dashboard-card{
-        margin: .7rem 0;
-    }
+.books-container {
+  margin-top: 3rem;
+}
+.books-container .link{
+  margin: 1rem 0;
+}
+.book-form{
+    max-width: 700px;
+    margin: 2rem auto;
+    box-shadow: 0 01px 30px rgba(204, 204, 204, 0.261);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-card__container {
+    display: block;
+  }
+  .dashboard-card {
+    margin: 0.7rem 0;
+  }
+}
+
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #093f68;
+  color: white;
 }

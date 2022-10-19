@@ -1,40 +1,57 @@
-import React, { useState, useEffect } from "react";
-import Button from "../common/Button";
-import Input from "../common/Input";
-import axios from "../api/axios";
-import "../styles/utils.css"
+import React, { useState } from "react";
+import Button from "../../common/Button";
+import Input from "../../common/Input";
+import axios from "../../api/axios";
+import "../../styles/utils.css"
+import {  useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 const REGISTER_URL = "/users/register";
 const Register = () => {
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {}, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) {
-      setError("Empty field found");
+      setError(["Empty field found"]);
       return;
     }
-
     try {
       const response = await axios.post(
         REGISTER_URL,
         { username, password },
         {
-          // withCredentials:true
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials:true
         }
       );
-      
+
       // clear input fields
-      setUsername("")
-      setPassword("")
-      setError(null)
-      setSuccess(true)
+      const accessToken = response?.data?.accessToken;
+      const role = response?.data?.role;
+      const user = response?.data?.newUsername;
+
+      setUsername("");
+      setPassword("");
+      setError(null);
+      setSuccess(true);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+     
+      setAuth({ user, role, accessToken });
     } catch (err) {
-const {errors} = err.response.data;
-setError(errors)
+      const { errors } = err.response.data;
+      setError(errors);
     }
   };
   return (

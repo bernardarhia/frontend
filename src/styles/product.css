@@ -35,6 +35,7 @@
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
+
 .cart-increment__button button:hover {
   background: #093f68;
   color: #fff;

@@ -23,3 +23,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+button{
+  cursor: pointer;
+}
+button:disabled,
+button[disabled]{
+  background-color: #ccccd852;
+  color: #666666;
+}
+body{
+  background: #ccc3;
+}

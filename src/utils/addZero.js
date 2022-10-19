@@ -1,0 +1,1 @@
+export const addZeroToNumber = (number)=>number.toFixed(Math.max(((number+'').split(".")[1]||"").length, 2));

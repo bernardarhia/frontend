@@ -22,13 +22,7 @@ const PersistLogin = () => {
     !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
   }, [refresh, auth?.accessToken]);
 
-
-
-  return (
-    <>
-    {isLoading ? <Loader /> : <Outlet />}
-    </>
-  )
+  return <>{isLoading ? <Loader /> : <Outlet />}</>;
 };
 
 export default PersistLogin;
